@@ -92,6 +92,9 @@ export const SelectCard = Vue.component('select-card', {
              this.playerinput.maxCardsToSelect > 1 &&
              this.playerinput.minCardsToSelect === 0;
     },
+    buttonLabel: function() {
+      return this.playerinput.buttonLabel + ' (' + this.cardsSelected() + ')';
+    },
     getData: function(): Array<CardName> {
       return Array.isArray(this.$data.cards) ? this.$data.cards.map((card) => card.name) : [this.$data.cards.name];
     },
