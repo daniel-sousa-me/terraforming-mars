@@ -134,7 +134,7 @@ export const SelectCard = Vue.component('select-card', {
         </label>
         <div v-if="hasCardWarning()" class="card-warning">{{ $t(warning) }}</div>
         <div v-if="showsave === true" class="nofloat">
-            <Button :disabled="isOptionalToManyCards() && cardsSelected() === 0" type="submit" :onClick="saveData" :title="buttonLabel()" />
+            <Button :disabled="isOptionalToManyCards() && cardsSelected() === 0 || cards===undefined" type="submit" :onClick="saveData" :title="buttonLabel()" />
             <Button :disabled="isOptionalToManyCards() && cardsSelected() > 0" v-if="isOptionalToManyCards()" :onClick="saveData" type="submit" :title="$t('Skip this action')" />
         </div>
     </div>`,
