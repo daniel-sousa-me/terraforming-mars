@@ -1,14 +1,18 @@
-version: "3.7"  
+version: "2.4"
 services:
   terraforming-mars:
     container_name: terraforming-mars
+    environment:
+      NODE_ENV: production
     build: ./
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "9973:8080"
     security_opt:
       - no-new-privileges:true
     volumes:
       - tm-db:/usr/src/app/db
+    cpus: "0.50"
+    mem_limit: 512M
 volumes:
   tm-db:
